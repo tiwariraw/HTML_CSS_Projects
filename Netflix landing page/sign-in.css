@@ -1,0 +1,238 @@
+/* google fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* for changing opacity of background image only and not the content on it */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.container::before {
+    content: '';
+    background: url('./assets/background.jpg');
+    background-size: cover;
+
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    opacity: 0.5;
+    box-shadow: inset 60px 40px 200px #000000,
+        inset -60px -40px 200px #000000;
+
+}
+
+/* small btn */
+.btn {
+    display: inline-block;
+    background-color: #e50914;
+    padding: 0.4rem 1.3rem;
+    border-radius: 4px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+/* xl button */
+.btn-xl {
+    font-size: 1.25rem;
+    padding: 0.7rem 2rem;
+    margin: 2rem 0 1rem 0;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* logo */
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+/* form */
+form {
+    padding: 3rem 4rem 7rem 4rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 6px;
+    max-width: 550px;
+    margin: 1rem auto 6rem auto;
+}
+
+label {
+    color: #999999;
+}
+
+input:not([type='checkbox']) {
+    display: block;
+    width: 100%;
+    font-size: 1.25rem;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    outline: none;
+
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+}
+
+input:invalid {
+    border-bottom: 2px solid #e87c03;
+}
+
+form h1 {
+    margin-bottom: 1rem;
+}
+
+form a {
+    text-decoration: none;
+}
+
+.help {
+    margin-left: 11.8rem;
+}
+
+.new-to-netflix {
+    margin: 1.5rem 0;
+    color: #757575;
+}
+
+.terms-and-conditions {
+    color: #808080;
+    font-size: 0.9rem;
+}
+
+.terms-and-conditions a {
+    color: #0071eb;
+}
+
+.terms-and-conditions a:hover {
+    color: #0080ff;
+    text-decoration: underline;
+}
+
+/* footer */
+.footer {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footer-container {
+    max-width: 980px;
+    margin: 0 auto;
+    color: #bbb;
+}
+
+.footer-container a {
+    display: block;
+    color: inherit;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+}
+
+.footer-container p {
+    padding: 1rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+}
+
+/* language (english/hindi) picker */
+select {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 0.5rem 2rem;
+    margin-bottom: 2rem;
+
+    border-radius: 4px;
+
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+.select-container {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+
+    position: relative;
+    margin-left: -20px;
+}
+
+.globe {
+    position: absolute;
+    top: 12px;
+    left: 24px;
+}
+
+.arrow-down {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+/* media queries */
+@media screen and (max-width: 550px) {
+
+    /* container */
+    .container::before {
+        opacity: .7;
+    }
+
+    /* form */
+    form {
+        padding: 1.5rem;
+    }
+
+    .help {
+        margin-left: 6rem;
+    }
+
+    .footer-container {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .help {
+        margin-left: 3rem;
+    }
+}

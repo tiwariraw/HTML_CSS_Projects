@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome kit -->
+    <script defer src="https://kit.fontawesome.com/2c8a6cb05e.js" crossorigin="anonymous"></script>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+
+    <!-- css -->
+    <link rel="stylesheet" href="sign-in.css">
+    <title>Netflix</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- logo -->
+        <div class="logo">
+            <img src="./assets/logo.png" alt="logo">
+        </div>
+
+        <!-- sign in form -->
+        <form action="#">
+            <h1>Sign In</h1>
+            <input type="email" name="email" placeholder="Email or phone number" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <a href="#" class="btn btn-xl">Sign in</a>
+
+            <input type="checkbox" name="remember-me" id="remember-me">
+            <label for="remember-me">Remember me</label>
+            <label class="help">Need help?</label>
+
+            <p class="new-to-netflix">New to Netflix? <a href="#">Sign up now</a>.</p>
+            <p class="terms-and-conditions">This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                <a href="#">Learn more</a>
+            </p>
+        </form>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <p>Questions? Call 000-800-919-1694</p>
+
+                <div class="footer-content flex">
+                    <!-- col-1 -->
+                    <div class="col-1">
+                        <a href="#faq">FAQ</a>
+                        <a href="#">Cookie Preferences</a>
+                    </div>
+
+                    <!-- col-2 -->
+                    <div class="col-2">
+                        <a href="#">Help Center</a>
+                        <a href="#">Corporate Information</a>
+                    </div>
+
+                    <!-- col-2 -->
+                    <div class="col-3">
+                        <a href="#">Terms of Use</a>
+                    </div>
+
+                    <!-- col-4 -->
+                    <div class="col-4">
+                        <a href="#">Terms of USe</a>
+                    </div>
+                </div>
+
+                <span class="select-container">
+                    <i class="fa-solid fa-globe globe"></i>
+                    <select name="language">
+                        <option value="eng"></i>English</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                    <i class="fa-solid fa-caret-down arrow-down"></i>
+                </span>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

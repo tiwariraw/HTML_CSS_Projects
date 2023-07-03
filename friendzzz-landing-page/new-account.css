@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* main flex container */
+.flex-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+}
+
+/* details (left) */
+
+.details {
+    flex-basis: 40%;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+}
+
+.friendzzz-logo {
+    width: 30%;
+    margin-bottom: 1rem;
+}
+
+/* new-account-form (right) */
+
+.new-account-form {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+
+    padding: 2rem 1.25rem;
+
+    background-color: #fff;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+
+    border-radius: 12px;
+}
+
+input {
+    height: 3rem;
+    margin-bottom: 1rem;
+
+    padding-left: 0.6rem;
+
+    border: 1px solid #dddfe2;
+    border-radius: 0.6rem;
+
+    font-size: 1.1rem;
+
+    color: #1877f2;
+}
+
+input:focus {
+    outline: none;
+    /* useful for removing black outline of <input> element*/
+    border: 2px solid #1877f2;
+}
+
+/* dob-details */
+.dob-details {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dob-details>select {
+    flex: 1;
+    padding: 0.3rem;
+
+    border-color: #dddfe2;
+    border-radius: 8px;
+
+    height: 3rem;
+}
+
+.dob-details>#month {
+    margin: 0 3rem;
+}
+
+/* gender-details*/
+.gender-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.wrapper-radio {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: space-around;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+
+    height: 3rem;
+}
+
+.wrapper-radio>label {
+    margin-top: 12px;
+}
+
+.gender-details>.margin-lr {
+    margin: 0 3rem;
+}
+
+.gender>p {
+    margin-top: 0.5rem;
+}
+
+/* terms-and-conditions */
+.terms-and-conditions {
+    margin-top: 1rem;
+}
+
+/* signup button */
+.signup-btn {
+    background-color: #42b72a;
+    color: #fff;
+
+    width: 12rem;
+    padding: 0.8rem;
+    margin: 2rem auto 0 auto;
+
+    border-radius: 8px;
+    cursor: pointer;
+
+    border: transparent;
+}
+
+/* media queries */
+@media screen and (max-width: 912px) {
+    
+    .flex-container {
+        height: auto;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .details {
+        /* border: 1px solid red; */
+        margin: 0;
+    }
+    
+    .friendzzz-logo {
+        width: 30%;
+    }
+
+    .new-account-form {
+        max-width: 85%;
+        margin-bottom: 2rem;
+    }
+
+    .details>p {
+        margin: 0 1.5rem;
+    }
+
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    .dob-details>#month {
+        margin: 0 1rem;
+    }
+
+    .wrapper-radio>label {
+        font-size: 0.8rem;
+        margin-top: 1rem;
+    }
+
+    .gender-details>.margin-lr {
+        margin: 0 1rem;
+    }
+}

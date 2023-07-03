@@ -1,0 +1,558 @@
+/* google fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+
+/* Reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Familjen Grotesk', sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+/* utilities */
+
+.container {
+    max-width: 1180px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    /* for absolute positioning of ::after pseudo element  */
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: center;
+    padding: 14px 50px;
+    border: 2px solid currentColor;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* try removing "overflow: hidden" property to know what it does */
+    /* to hide the white asbolutely positioned background when its translateY property is set to 100% */
+    overflow: hidden;
+    z-index: 2;
+}
+
+.btn:hover span {
+    color: #000;
+}
+
+.btn::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    transition: transform 0.3s ease-out;
+    /* this pushesh the white background to 100% down. To see what it does, try changing "transform: translateY(70%);" */
+    transform: translateY(100%);
+}
+
+.btn:hover::after {
+    transform: translateY(0);
+}
+
+/* HEADER */
+
+.header {
+    height: 100px;
+    justify-content: space-between;
+
+    padding: 0 3rem 0rem 7rem;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.navbar {
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+/* nav-links bottom border */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    background-color: #fff;
+
+    height: 1px;
+    width: 100%;
+
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+
+    transition: transform 0.3s ease-out;
+    transform: scaleX(0);
+    /* right center means origin will be changed to "right" in x direction and "center" in y direction */
+    transform-origin: right center;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+    transition-duration: 0.4s;
+}
+
+/* logo */
+.logo {
+    width: 250px;
+    height: auto;
+}
+
+.logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ul/nav-links */
+.nav-links {
+    column-gap: 30px;
+}
+
+/* stop-scroll */
+.stop-scroll {
+    overflow: hidden;
+}
+
+/* overlay */
+.overlay-show {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+/* hamburger */
+.hamburger {
+    position: fixed;
+    top: 42px;
+    right: 40px;
+    z-index: 10;
+
+    width: 20px;
+    height: 20px;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+}
+
+.hamburger .top,
+.hamburger .middle,
+.hamburger .bottom {
+    background-color: #fff;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    transition: all 0.3s;
+}
+
+.hamburger .middle {
+    transform: translateY(6px);
+}
+
+.hamburger .bottom {
+    transform: translateY(12px);
+}
+
+/* changing hamburger menu to X when it is open */
+.hamburger.open {
+    transform: rotate(90deg);
+}
+
+.open .top {
+    width: 120%;
+    transform: rotate(45deg) translateX(18px) translateY(18px);
+}
+
+.open .middle {
+    display: none;
+}
+
+.open .bottom {
+    width: 120%;
+    transform: rotate(-45deg) translateX(-18px) translateY(18px);
+}
+
+/* sidebar */
+.sidebar {
+    background-color: #000;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 4;
+
+    width: 250px;
+    padding: 0 1rem;
+    text-align: right;
+
+    transform: translateX(100%);
+    transition: transform .4s ease-out;
+}
+
+.sidebar.active {
+    transform: translateX(0%);
+}
+
+.sidebar ul {
+    margin-top: 5rem;
+    margin-right: 2.5rem;
+}
+
+.sidebar ul li {
+    padding: 0.7rem 0;
+    border-bottom: 1px dotted #444;
+}
+
+.sidebar ul li a {
+    font-size: 1rem;
+}
+
+/* hde the li with class "mobile" */
+.mobile-only {
+    display: none;
+}
+
+/* sections */
+
+section {
+    position: relative;
+
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* for getting a parallax effect */
+    background-attachment: fixed;
+
+    text-transform: uppercase;
+}
+
+section .scroll-arrow {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    /* for positioning the arrow exactly at the center */
+    transform: translateX(-50%);
+
+    animation: arrowBounce 5s ease-in-out infinite;
+}
+
+.section-content {
+    position: absolute;
+    bottom: 120px;
+    left: 100px;
+}
+
+.section-content h4 {
+    /* used this different font for h4 here because the the font set on the body ("Familjen Grotesk") doesn't have weights less than 400.
+    The current font used here (Space Grotesk) has wright 300 */
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 3px;
+
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.section-content h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+
+    animation: fadeInUp 0.5s ease-in-out 0.2s;
+    /* stop from showing the animation at start */
+    animation-fill-mode: backwards;
+}
+
+.section-content a {
+    animation: fadeInUp 0.5s ease-in-out 0.4s;
+    animation-fill-mode: backwards;
+}
+
+/* background images */
+.section1 {
+    background-image: url('./assets/img1.jpg');
+}
+
+.section2 {
+    background-image: url('./assets/img2.jpg');
+}
+
+.section3 {
+    background-image: url('./assets/img3.jpg');
+}
+
+/* footer */
+
+.footer-content {
+    padding: 1.5rem 0;
+
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-content>li,
+.footer-content>li>a {
+    font-size: 0.8rem;
+    margin-right: 1.5rem;
+}
+
+.footer-content a {
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-content a:hover {
+    color: #979797;
+}
+
+/* Remaining html pages */
+.bg-falcon-9 {
+    background-image: url('./assets/falcon-9.webp');
+}
+
+.bg-falcon-heavy {
+    background-image: url('./assets/falcon-heavy.webp');
+}
+
+.bg-dragon {
+    background-image: url('./assets/dragon.webp');
+}
+
+.section-animate {
+    animation: fadeIn 1s ease-out;
+}
+
+.section-inner-center {
+    /* height is set to auto because for the "section" element we have give a height of 100vh (see above)  */
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.section-inner-center h3 {
+    font-size: 6rem;
+    margin-bottom: 0.8rem;
+
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.section-inner-center p {
+    animation: fadeInUp 0.5s ease-out 0.2s;
+    animation-fill-mode: backwards;
+}
+
+/* statistics */
+.statistics {
+    max-width: 1180px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+    justify-content: space-between;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.statistics div span {
+    font-size: 10rem;
+}
+
+.statistics div h4 {
+    font-size: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    20%,
+    30%,
+    60%,
+    100% {
+        opacity: 0;
+        transform: translateY(0px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 960px) {
+
+    /* hide nav-links */
+    .nav-links {
+        display: none;
+    }
+
+
+    /* sidebar */
+
+    /* show all li with class "mobile-only" */
+    .mobile-only {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    /* header */
+    .header {
+        height: 60px;
+    }
+
+    /* logo */
+    .logo {
+        width: 160px;
+        margin: auto;
+    }
+
+    /* hamburger */
+    .hamburger {
+        top: 25px;
+        right: 20px;
+    }
+
+    /* sidebar */
+    .sidebar {
+        width: 110px;
+        padding: 0;
+        padding-left: 1rem;
+    }
+
+    .sidebar ul {
+        margin-right: 1.5rem;
+    }
+
+    .sidebar ul li {
+        padding: 0.5rem 0;
+    }
+
+    .sidebar ul li a {
+        font-size: .8rem;
+    }
+
+    /* section */
+    .section-content {
+        bottom: 80px;
+        left: 20px;
+    }
+
+    .section-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .section-content h2 {
+        font-size: 2.1rem;
+    }
+
+    /* inner pages */
+
+    .section-inner-center {
+        width: 300px;
+    }
+
+    .section-inner-center h3 {
+        font-size: 4rem;
+    }
+
+    /* statistics */
+    .statistics {
+        margin-top: 2rem;
+        padding: 0.5rem;
+    }
+
+    .statistics div span {
+        font-size: 3rem;
+    }
+
+    .statistics div h4 {
+        font-size: 1rem;
+    }
+
+    /* footer */
+    .footer-content {
+        justify-content: space-around;
+    }
+
+    .footer-content li {
+        flex-basis: 40%;
+        margin: 0.5rem 0;
+    }
+}

@@ -1,0 +1,560 @@
+/* google fonts (Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    color: #ffffff;
+}
+
+::selection {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #e50914;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+p {
+    font-size: 1.15rem;
+}
+
+/* utility classes */
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #e50914;
+    padding: 0.4rem 1.3rem;
+    border-radius: 4px;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-large {
+    font-size: 1.25rem;
+    padding: 0.7rem 2rem;
+}
+
+/* HEADER*/
+
+.header {
+    height: 94vh;
+    background-image: url('./assets/background.jpg');
+    background-size: cover;
+}
+
+.background {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: inset 60px 40px 200px #000000,
+        inset -60px -40px 200px #000000;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+select {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 0.5rem 2rem;
+    border-radius: 4px;
+
+    /* for removing the in-built dropdown of select element */
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+}
+
+.select-container {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+
+    position: relative;
+}
+
+/* globe icon */
+.globe {
+    position: absolute;
+    top: 12px;
+    left: 24px;
+}
+
+/* down arrow */
+.arrow-down {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+.description {
+    margin-top: 180px;
+    text-align: center;
+}
+
+.description h3 {
+    margin: 1rem 0 2rem 0;
+}
+
+.description p {
+    margin-bottom: 2rem;
+}
+
+/* input:invalid {
+    border-color: red;
+} */
+
+/* By default, the empty string is treated as valid by user. So, unless input has "required" attribute, if the :valid pseudo class is used then the border-color will be green only even if the inout field is empty. If you want it to be sleected by :invalid pseudo class, then use "required" attribute for that input elemnt*/
+/* Ref: https://stackoverflow.com/questions/31353905/is-an-input-field-valid-while-is-empty */
+input:valid {
+    border-color: green;
+}
+
+input {
+    width: 400px;
+    font-size: 1.25rem;
+    padding: 0.8rem;
+    margin-right: 0.7rem;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.6);
+    outline: none;
+    border: 1px solid #808080b3;
+    color: #ccc;
+}
+
+input:focus {
+    outline: 1px solid #ccc;
+}
+
+/* FEATURE SECTION */
+
+.feature-section,
+.faq-section,
+.footer-section {
+    border-top: 8px solid #232323;
+}
+
+.feature-container {
+    height: 78vh;
+    justify-content: space-between;
+}
+
+.feature-container .content {
+    flex-basis: 50%;
+}
+
+.feature-container h3 {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.feature-container .img-container {
+    flex-basis: 47%;
+}
+
+.feature-container .img-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-container {
+    position: relative;
+}
+
+/* video1(m4v) */
+.video {
+    width: 72%;
+    position: absolute;
+    top: 87px;
+    left: 75px;
+    z-index: -1;
+}
+
+/* video2(m4v) */
+.video2 {
+    width: 65%;
+    top: 60px;
+    left: 90px;
+}
+
+/* 2nd and 3rd fetures have images on the left and content on the right */
+.feature-section:nth-child(odd)>.feature-container {
+    flex-direction: row-reverse;
+}
+
+/* layer is only for the 2nd feature */
+.layer-parent {
+    position: relative;
+}
+
+.layer {
+    border: 2px solid #808080b3;
+    background-color: #000;
+    width: 60%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    position: absolute;
+    bottom: 40px;
+    left: 100px;
+    justify-content: space-between;
+}
+
+/* stranger things img */
+.layer img:nth-child(1) {
+    height: 20%;
+    width: 20%;
+}
+
+/* download gif */
+.layer img:nth-of-type(2) {
+    height: 15%;
+    width: 15%;
+}
+
+.layer p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: -55px;
+}
+
+.layer div p:nth-child(2) {
+    color: #0071eb;
+}
+
+/* FAQ SECTION */
+
+.faq-container {
+    margin-top: 60px;
+}
+
+.faq-container h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* accordian */
+.accordian {
+    margin-bottom: .7rem;
+}
+
+details {
+    background-color: #2d2d2d;
+    font-size: 1.5rem;
+    border-radius: 8px;
+}
+
+details summary {
+    padding: 1rem;
+    list-style: none;
+    justify-content: space-between;
+
+    transition: background-color .2s ease-out;
+}
+
+summary:hover {
+    cursor: pointer;
+    background-color: rgba(100, 100, 100, 0.6);
+}
+
+summary::after {
+    content: '\002b';
+    font-size: 2rem;
+
+    transition: transform 0.3s ease-out;
+}
+
+details[open] summary::after {
+    /* + icon is rotated by 135deg when the details is opened */
+    transform: rotate(135deg); 
+    font-size: 2rem;
+}
+
+details p {
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 1.25rem;
+}
+
+.faq-container .content {
+    text-align: center;
+    margin: 3rem 0 5rem 0;
+}
+
+.faq-container .content p {
+    margin-bottom: 1rem;
+}
+
+/* FOOTER */
+
+.footer-container {
+    margin-top: 60px;
+    color: #ffffffb3;
+    font-size: 0.9rem;
+}
+
+.footer-container a {
+    text-decoration: underline;
+    color: #ffffffb3;
+}
+
+.footer-container p {
+    margin-bottom: 2rem;
+}
+
+.footer-content {
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer-content a {
+    display: block;
+    margin: 8px 0;
+}
+
+.col-1,
+.col-2,
+.col-3 {
+    flex-basis: 30%;
+}
+
+.footer-container .select-container {
+    margin-left: -20px;
+}
+
+.footer-container p:nth-of-type(2) {
+    margin-top: 1rem;
+}
+
+/* media queries */
+
+@media screen and (max-width: 550px) {
+
+    h1 {
+        font-size: 2rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.2rem 0.6rem;
+    }
+
+    .btn-large {
+        padding: 0.5rem 1.5rem;
+    }
+
+    /* HEADER */
+
+    .header {
+        height: 80vh;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    select {
+        font-size: 0.8rem;
+        padding: 0.5rem 1.75rem;
+    }
+
+    .select-container {
+        font-size: 1rem;
+    }
+
+    .description {
+        margin-top: 60px;
+    }
+
+    input {
+        width: 300px;
+        margin-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    /* FEATURE SECTION */
+
+    .feature-container {
+        flex-direction: column;
+        text-align: center;
+        margin: 2rem 0;
+        padding: 0.7rem;
+    }
+
+    .feature-container h3 {
+        font-size: 1.15rem;
+    }
+
+    /* for 2nd and 3rd features, their flex direction is change to column */
+    .feature-section:nth-child(odd)>.feature-container {
+        flex-direction: column;
+    }
+
+    .feature-section:nth-of-type(4)>.feature-container .img-container {
+        margin-top: 40px;
+    }
+
+    .feature-container .content {
+        flex-basis: 100%;
+    }
+
+    .feature-container .img-container {
+        flex-basis: 100%;
+    }
+
+    .img-container {
+        margin-top: -200px;
+    }
+
+    .video {
+        height: 100%;
+        top: -10px;
+        left: 48px;
+    }
+
+    .video2 {
+        width: 60%;
+        top: -65px;
+        left: 70px;
+    }
+
+    .layer {
+        width: 70%;
+        bottom: 30px;
+        left: 50px;
+    }
+
+    .layer img:nth-child(1) {
+        height: 15%;
+        width: 15%;
+    }
+
+    .layer p {
+        margin-left: -15px;
+    }
+
+    /* FAQ SECTION */
+
+    .accordian {
+        padding: 0.8rem;
+        margin-bottom: -8px;
+    }
+
+    details {
+        background-color: #2d2d2d;
+        font-size: 1.1rem;
+    }
+
+    details summary {
+        padding: 0.5rem;
+    }
+
+    details p {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .faq-container .cta input {
+        margin-top: 1rem;
+    }
+
+    /* FOOTER */
+
+    .footer-container {
+        padding: 0 2rem;
+    }
+
+    .footer-container a {
+        margin-bottom: 1rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .col-1,
+    .col-2,
+    .col-3 {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .feature-section:nth-of-type(2) .feature-container .content h3 {
+        position: relative;
+        z-index: 2;
+    }
+}
